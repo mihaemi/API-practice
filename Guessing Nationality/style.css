@@ -1,0 +1,29 @@
+body {
+    font-family: Arial;
+    background-color: #234;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+#form-name h1 {
+    margin-bottom: 2em;
+}
+
+#form-name {
+    border: 1px solid #345;
+    padding: .5em;
+}
+
+#form-name input {
+    padding: 1em;
+    font-size: 150%;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#form-name .output {
+    font-size: 200%;
+    padding: 1em;
+}
