@@ -1,0 +1,82 @@
+<!-- 
+    WEB SCRAPPER
+    * AJAX
+    * DOM
+    * Array
+    * OOP
+
+    -------- BROWSER -------
+                            |
+            app (js/front) ---- > Request ---- > SERVER (wiki)
+                          < ----- Response ----<
+                          |        (text)
+                          |
+                     dom parser
+                          |
+                          |
+                     dom structure
+                          |
+                          |
+                        data
+                          |
+    ----------------------
+                          
+
+
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scrapper</title>
+</head>
+<body>
+    
+
+    <script>
+        const URL = "https://en.wikipedia.org/wiki/List_of_programming_languages"
+
+        // using AJAX to communicate with wiki server in background
+
+        function loadPage() {
+
+        // 1. prep the connection object
+        let xhr = new XMLHttpRequest()
+
+        // 2. a callback
+        xhr.onload = () => {
+
+            // parse the doc
+            let html = xhr.responseText // string
+            let parser = new DOMParser()
+            let htmlDoc = parser.parseFromString(html, "text/html")   // DOM structure
+
+            // traverse DOM structure & scrape
+            let languages = []
+            let divs = htmlDoc.querySelectorAll(".div-col")
+            let div = divs[9]
+            let lis = div.firstElementChild.children
+
+            for (let i=0; i< lis.length; i++) {
+                languages.push(lis[i].firstElementChild.innerText)
+            }
+            //console.log(htmlDoc)
+            console.log(languages)
+        }
+
+        // HW: render the gathered info into a HTML table using DOM OOP approach
+
+        // 2. setup
+        xhr.open("GET", URL)
+
+        // 3. send the request
+        xhr.send()
+        }
+
+    </script>
+</body>
+</html>
