@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather APP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>API weather demo app</h1>
+
+    <form name="cityName" id="submitForm">
+        <label for="city"></label>
+        <input 
+            type="text" 
+            id="city" 
+            placeholder="enter a city name..."
+        >
+        <button type="submit">Enter</button>
+    </form>
+
+    <div id="output">
+        <h4 id="temperature"></h4>
+        <h4 id="humidity"></h4>
+        <h4 id="wind-speed"></h4>
+    </div>
+    <div id="icon">
+        <img/>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
